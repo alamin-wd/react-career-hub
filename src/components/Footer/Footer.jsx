@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
 
-        <div>
+        <div className="my-12 bg-[#1A1919] text-white">
             <footer className="footer">
                 <aside>
                     <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
