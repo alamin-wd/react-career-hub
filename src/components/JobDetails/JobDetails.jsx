@@ -4,7 +4,9 @@ import { PiSubtitlesBold } from "react-icons/pi";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../utility/localStorage";
 
 const JobDetails = () => {
 
@@ -15,7 +17,15 @@ const JobDetails = () => {
 
     const job = jobs.find(job => job.id === idInt);
 
-    const {job_title, salary, contact_information, job_description, job_responsibility, educational_requirements, experiences} = job;
+    const { job_title, salary, contact_information, job_description, job_responsibility, educational_requirements, experiences } = job;
+
+    // Apply Now Btn Handler
+    const handleApplyNow = () => {
+
+        saveJobApplication(idInt);
+
+        toast('You have successfully applied the job!');
+    }
 
     return (
         <div className="mt-10">
@@ -107,9 +117,15 @@ const JobDetails = () => {
                     </div>
 
                     <div className="mt-6">
-                        <button className="w-full bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
+                        <button onClick={handleApplyNow}
+                            className="w-full bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
                             Apply Now
                         </button>
+                    </div>
+
+                    {/* Toast */}
+                    <div>
+                        <ToastContainer />
                     </div>
 
                 </div>
