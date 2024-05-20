@@ -39,7 +39,7 @@ const Header = () => {
             
             <div className="navbar-end">
 
-                <button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
+                <button className=" bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
                 Start Applying
                 </button>
 

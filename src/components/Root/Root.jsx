@@ -4,14 +4,17 @@ import Header from "../Header/Header";
 
 const Root = () => {
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="max-w-full">
 
-            <Header></Header>
+            <div className="w-11/12 mx-auto">
 
-            <Outlet></Outlet>
+                <Header></Header>
+                <Outlet></Outlet>
+                
+            </div>
 
             <Footer></Footer>
-            
+
         </div>
     );
 };
