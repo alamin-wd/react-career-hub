@@ -3,10 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
 
     const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/statistics">Statistics</NavLink></li>
-        <li><NavLink to="/appliedJobs">Applied Jobs</NavLink></li>
-        <li><NavLink to="/blogs">Blogs</NavLink></li>
+        <li className="hover:underline hover:text-[#7E90FE]"><NavLink to="/">Home</NavLink></li>
+        <li className="hover:underline hover:text-[#7E90FE]"><NavLink to="/statistics">Statistics</NavLink></li>
+        <li className="hover:underline hover:text-[#7E90FE]"><NavLink to="/appliedJobs">Applied Jobs</NavLink></li>
+        <li className="hover:underline hover:text-[#7E90FE]"><NavLink to="/blogs">Blogs</NavLink></li>
     </>
 
     return (
@@ -29,18 +29,18 @@ const Header = () => {
 
             </div>
 
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+            <div className="navbar-center hidden md:flex lg:flex">
+                <ul className="flex items-center gap-6 font-semibold">
                     {
                         links
                     }
                 </ul>
             </div>
-            
+
             <div className="navbar-end">
 
                 <button className=" bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
-                Start Applying
+                    Start Applying
                 </button>
 
             </div>
