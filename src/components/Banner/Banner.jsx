@@ -3,7 +3,7 @@
 const Banner = () => {
 
     return (
-        <div className='w-full md:min-h-screen flex flex-col-reverse md:flex-row md:items-center bg-[#F9F9FF] p-6 md:px-10'>
+        <div className='w-full md:min-h-screen flex flex-col-reverse md:flex-row md:items-center bg-[#F9F9FF] p-6 md:px-10 rounded-xl'>
 
             <div className='md:w-1/2 md:px-10 text-center md:text-left'>
                 <h1 className="text-[#1A1919] text-4xl md:text-7xl font-bold mt-2">

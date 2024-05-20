@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../utility/localStorage";
 import { FaChevronDown } from "react-icons/fa6";
+import { IoLocationOutline } from "react-icons/io5";
+import { AiOutlineDollar } from "react-icons/ai";
 
-
+ 
 const AppliedJobs = () => {
 
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -59,7 +61,7 @@ const AppliedJobs = () => {
 
             <div className="flex justify-between items-center">
 
-                <h2 className="text-3xl text-[#474747] font-bold">All Applied Jobs: {displayJobs.length}</h2>
+                <h2 className="text-2xl md:text-3xl text-[#474747] font-bold">All Applied Jobs: {displayJobs.length}</h2>
 
                 <details className="dropdown">
                     <summary className="m-1 btn">Filter By <FaChevronDown /></summary>
@@ -76,11 +78,11 @@ const AppliedJobs = () => {
                 displayJobs.map(appliedJob =>
 
                     <div key={appliedJob.id}
-                        className="flex justify-between items-center border p-10 mt-6 rounded-lg">
+                        className="flex flex-col md:flex-row md:justify-between items-center border md:p-10 mt-6 rounded-lg">
 
-                        <div className="flex justify-between items-center gap-16">
+                        <div className="flex flex-col md:flex-row md:justify-between items-center gap-4 md:gap-16">
 
-                            <div className="w-72 bg-[#F4F4F4] p-10 rounded-lg">
+                            <div className="w-72 bg-[#F4F4F4] mt-10 md:mt-0 p-6 md:p-10  rounded-lg">
                                 <img className="w-60" src={appliedJob.logo} alt="" />
                             </div>
 
@@ -103,12 +105,12 @@ const AppliedJobs = () => {
                                 <div className="flex items-center gap-6 mb-2">
 
                                     <div className="flex items-center gap-1 text-[#757575] text-xl font-medium">
-                                        <span></span>
+                                        <span><IoLocationOutline /></span>
                                         <h4>{appliedJob.location}</h4>
                                     </div>
 
                                     <div className="flex items-center gap-1 text-[#757575] text-xl font-medium">
-                                        <span></span>
+                                        <span><AiOutlineDollar /></span>
                                         <h4>{appliedJob.salary}</h4>
                                     </div>
 
@@ -118,7 +120,7 @@ const AppliedJobs = () => {
 
                         </div>
 
-                        <div>
+                        <div className="my-6 md:my-0 ">
 
                             <button className="bg-gradient-to-r from-[#7E90FE] to-[#9873FF] px-4 py-3 rounded-lg text-white text-lg font-semibold">
                                 View Details
