@@ -1,11 +1,31 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../utility/localStorage";
+import { FaChevronDown } from "react-icons/fa6";
 
 
 const AppliedJobs = () => {
 
     const [appliedJobs, setAppliedJobs] = useState([]);
+    const [displayJobs, setDisplayJobs] = useState([]);
+
+    const handleFilterJobs = filter => {
+
+        if(filter === 'all'){
+            setDisplayJobs(appliedJobs);
+        }
+        else if(filter === 'remote'){
+            const remoteJobs = appliedJobs.filter(appliedJob => appliedJob.remote_or_onsite === 'Remote');
+
+            setDisplayJobs(remoteJobs);
+        }
+        else if(filter === 'onsite'){
+            const onsiteJobs = appliedJobs.filter(appliedJob => appliedJob.remote_or_onsite === 'Onsite');
+
+            setDisplayJobs(onsiteJobs);
+        }
+
+    }
 
     const jobs = useLoaderData();
 
@@ -28,16 +48,32 @@ const AppliedJobs = () => {
             }
 
             setAppliedJobs(jobsApplied);
+            setDisplayJobs(jobsApplied);
         }
 
-    }, []);
+    }, [jobs]);
 
     return (
 
-        <div>
-            
+        <div className="my-10">
+
+            <div className="flex justify-between items-center">
+
+                <h2 className="text-3xl text-[#474747] font-bold">All Applied Jobs: {displayJobs.length}</h2>
+
+                <details className="dropdown">
+                    <summary className="m-1 btn">Filter By <FaChevronDown /></summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-lg w-28">
+                        <li onClick={() => handleFilterJobs('all')}><a>All</a></li>
+                        <li onClick={() => handleFilterJobs('remote')}><a>Remote</a></li>
+                        <li onClick={() => handleFilterJobs('onsite')}><a>Onsite</a></li>
+                    </ul>
+                </details>
+
+            </div>
+
             {
-                appliedJobs.map(appliedJob =>
+                displayJobs.map(appliedJob =>
 
                     <div key={appliedJob.id}
                         className="flex justify-between items-center border p-10 mt-6 rounded-lg">
